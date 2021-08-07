@@ -1,0 +1,29 @@
+# Netlify CMS backend (Git Gateway)
+backend:
+  name: git-gateway
+  branch: master
+
+# Media folder to upload statid media resources
+media_folder: static/img
+# URL, relative to Gatsby site's root from where
+# images will be served
+public_folder: /img
+
+# Collections section -----------------
+collections:
+- name: "blog"
+  label:  "Blog"
+  folder: "src/blog"
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  fields:
+    - label: "Title"
+      name: "title"
+      widget: "string"
+    - label: "Publish Date"
+      name: "date"
+      widget: "datetime"
+    - label: "Body"
+      name: "body"
+      widget: "markdown"
+# End Collections section -------------
