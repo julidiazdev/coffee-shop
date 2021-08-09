@@ -3,7 +3,7 @@ backend:
   name: git-gateway
   branch: master
 
-# Media folder to upload statid media resources
+# Media folder to upload static media resources
 media_folder: static/img
 # URL, relative to Gatsby site's root from where
 # images will be served

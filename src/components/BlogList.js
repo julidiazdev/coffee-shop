@@ -18,10 +18,9 @@ export default function BlogList() {
                             title
                             date(formatString: "MMMM D, YYYY")
                         }
-                        excerpt
                     }
                 }
-            }   
+            }
         }
     `);
 
@@ -32,7 +31,6 @@ export default function BlogList() {
                     key={ edge.node.id } 
                     title={ edge.node.frontmatter.title } 
                     date={ edge.node.frontmatter.date } 
-                    excerpt={ edge.mode.excerpt } 
                 />        
             ))}
         </div>

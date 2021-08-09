@@ -6,7 +6,7 @@ import React from 'react';
 import styles from './BlogPost.module.css';
 
 // BlogPost component receives as PROPERTIES all its
-// data (title, date, excerpt), from a parent component ... 
+// data (title, date, excerpt), from a parent component ...
 export default function BlogPost({ title, date, excerpt }) {
     return (
         <article className={ styles.blog }>
