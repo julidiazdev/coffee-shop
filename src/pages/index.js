@@ -22,7 +22,7 @@ export default function IndexPage() {
     <Layout>
       <div id={styles.hero}>
         <h1>{data.site.siteMetadata.title}</h1>
-        <h5><i>A new concept of Roasted Coffee ...</i></h5>
+        <h5><i>A new concept of Arabic Roasted Coffee ...</i></h5>
       </div>
       <BlogList/>
     </Layout>
