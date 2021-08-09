@@ -10,7 +10,9 @@ export default function BlogList() {
     // Defining GraphQL query, using the useStaticQuery hook
     const data = useStaticQuery(graphql`
         {
-            allMarkdownRemark {
+            # Here in the GraphQL query we set the correct date order for the posts,
+            # using a parameter (sort), the field used for sort, and sort order
+            allMarkdownRemark (sort: { fields: frontmatter__date, order: DESC }) {
                 edges {
                     node {
                         id
