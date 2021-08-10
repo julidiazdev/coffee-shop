@@ -47,7 +47,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 // onCreateNode(node, getNode, actions)
 exports.onCreateNode = function({ node, getNode, actions }) {
-    
+
     // We need to destructure the "actions" object to pull out from it
     // the helper function createNodeField(), which we use to add the new "slug" field
     // to the node data fields
@@ -74,15 +74,15 @@ exports.createPages = async function({ graphql, actions }) {
     // We need to destructure the "actions" object to pull out from it
     // the helper function createPage(), which we use to create a new dynamic page
     // from the page template "blog.js"
-    const { createPage } = actions;  
-  
+    const { createPage } = actions;
+
     // GraphQL query to get the slug
     // Here the query is a bit different than in previous queries,
     // because instead of a graphql tag on a template string (graphql`....`), 
     // it's a function we call to execute the query, which is supplied as an argument --> await graphql(`...`) 
     // The use of "await" tell us that the graphql() function is returning us a Promise
     // To simplify the code, we're using the async/await syntax, which allows us to have 
-    // asynchronous code written in synchronous style 
+    // asynchronous code written in synchronous style
     const result = await graphql(`
         query {
             allMarkdownRemark {
@@ -96,7 +96,7 @@ exports.createPages = async function({ graphql, actions }) {
             }
         }
         `);
-    
+
     // As always, the result of a GraphQL query is stored
     // in the property "data", so we access it through const variable "result" ...
     // We loop over the set of nodes, mapping each node
