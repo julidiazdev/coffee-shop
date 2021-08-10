@@ -20,6 +20,7 @@ export default function BlogList() {
                             title
                             date(formatString: "MMMM D, YYYY")
                         }
+                        excerpt
                     }
                 }
             }
@@ -32,7 +33,8 @@ export default function BlogList() {
                 <BlogPost 
                     key={ edge.node.id } 
                     title={ edge.node.frontmatter.title } 
-                    date={ edge.node.frontmatter.date } 
+                    date={ edge.node.frontmatter.date }
+                    excerpt={ edge.node.excerpt } 
                 />        
             ))}
         </div>
