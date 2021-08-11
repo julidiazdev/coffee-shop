@@ -116,3 +116,35 @@ exports.createPages = async function({ graphql, actions }) {
     });
 };
 
+// Code for paginating posts; we've determined to show
+// 5 posts/per page
+const posts = result.data.allMarkdownRemark.edges;
+const pageSize = 5;
+// Calculating number of posts from total posts / pageCount
+const pageCount = Math.ceil(posts.length / pageSize);
+
+// New template page used for each paginated page
+const templatePath = path.resolve('src/templates/blog-list.js');
+
+// We iterate through number of pages
+// creating dynamically the pages (/blog, /blog2, /blog/3 ...)
+for(let i = 0; i < pageCount; i++) {
+    let path = '/blog';
+    if(i > 0) {
+        path += `/${i+i}`;
+    }
+
+    // We pass context data to createPage() function
+    createPage({
+        path,
+        component: templatePath,
+        context: {
+            limit: pageSize,
+            skip: i* pageSize,
+            pageCount,
+            currentPage: i + 1
+        }
+    });
+}
+
+
